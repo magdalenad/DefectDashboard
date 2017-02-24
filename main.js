@@ -8,13 +8,12 @@ var main = document.getElementById("main-box");
 var table = '<div class="w3-container w3-responsive"><table class="w3-table w3-bordered w3-white"><caption class="w3-white">MCOM Active Defects</caption><thead><tr><th>Defect Number</th><th>Defect Title</th><th>Age (Days)</th><th>Created By</th></tr></thead><tbody class="mcom-defects"></tbody></table></div><hr><div class="w3-container w3-responsive"><table class="w3-table w3-bordered w3-white"><caption class="w3-white">BCOM Active Defects</caption><thead><tr><th>Defect Number</th><th>Defect Title</th><th>Age (Days)</th><th>Created By</th></tr></thead><tbody class="bcom-defects"></tbody></table></div>'
 $.ajax({
     type : "GET",
-    url : "https://www14.v1host.com/Macyscom/rest-1.oauth.v1/Data/Defect?sel=Parent.Name,Timebox.Name,CreateDate,ID.Number,CreatedBy.Name,Name,Parent.Name&Accept=application/json&where=Custom_Channel2.Name!='BCOM';IsClosed='false';SecurityScope.Name='Selection';SecurityScope.Name='Selection Lean Dev';Parent.Name!=''",
+    url : "https://www14.v1host.com/Macyscom/rest-1.oauth.v1/Data/Defect?sel=Parent.Name,Timebox.Name,CreateDate,ID.Number,CreatedBy.Name,Name,Parent.Name&Accept=application/json&where=Custom_Channel2.Name!='BCOM';IsClosed='false';SecurityScope.Name='Selection';Parent.Name!=''",
     dataType: 'jsonp',
     beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer 1.y4Lq8do1hb2E1yxXYY8ycCDd1Do=');},
     success : function(result) {
         for (var i = 0; i < result.Assets.length; i++){
             var defect = result.Assets[i];
-            console.log(defect);
             mcomdefects.push(defect);
             if(!releaseList.includes(defect.Attributes["Parent.Name"].value.slice(0,3))){
                 releaseList.push(defect.Attributes["Parent.Name"].value.slice(0,3));
@@ -30,13 +29,12 @@ $.ajax({
 
 $.ajax({
     type : "GET",
-    url : "https://www14.v1host.com/Macyscom/rest-1.oauth.v1/Data/Defect?sel=Parent.Name,Timebox.Name,CreateDate,ID.Number,CreatedBy.Name,Name,Parent.Name&Accept=application/json&where=Custom_Channel2.Name='BCOM';IsClosed='false';SecurityScope.Name='Selection';SecurityScope.Name='Selection Lean Dev';Parent.Name!=''",
+    url : "https://www14.v1host.com/Macyscom/rest-1.oauth.v1/Data/Defect?sel=Parent.Name,Timebox.Name,CreateDate,ID.Number,CreatedBy.Name,Name,Parent.Name&Accept=application/json&where=Custom_Channel2.Name='BCOM';IsClosed='false';SecurityScope.Name='Selection';Parent.Name!=''",
     dataType: 'jsonp',
     beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer 1.y4Lq8do1hb2E1yxXYY8ycCDd1Do=');},
     success : function(result) {
         for (var i = 0; i < result.Assets.length; i++){
             var defect = result.Assets[i];
-            console.log(defect);
             bcomdefects.push(defect);
             if(!releaseList.includes(defect.Attributes["Parent.Name"].value.slice(0,3))){
                 releaseList.push(defect.Attributes["Parent.Name"].value.slice(0,3));
