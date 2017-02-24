@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<title>Defect Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+    html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-container w3-top w3-black w3-large w3-padding" style="z-index:4">
+    <button class="w3-btn w3-hide-large w3-padding-0 w3-hover-text-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+    <button class="w3-right w3-btn w3-hide-large w3-padding-0 w3-hover-text-grey"><i class="material-icons">refresh</i></button>
+</div>
+
+<!-- Sidenav/menu -->
+<nav class="w3-sidenav w3-collapse w3-white w3-animate-left" style="z-index:3;width:200px;" id="mySidenav"><br>
+    <div class="w3-container">
+        <h5>Menu</h5>
+    </div>
+    <a href="#" class="w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="#" class="w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Defect Dashboard</a>
+    <a href="https://macysinc-my.sharepoint.com/personal/satish_satish_macys_com/_layouts/15/WopiFrame.aspx?sourcedoc={de54fb39-d5b1-4b3e-96f6-221b479a5a41}&action=embedview&wdAllowInteractivity=False&Item='Report'!A1%3AX62&wdHideGridlines=True&wdDownloadButton=True" class="w3-padding"><i class="fa fa-eye fa-fw"></i>  Regression Tests</a>
+</nav>
+
+
+<!-- Overlay effect when opening sidenav on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-container"  style="margin-left:200px;margin-top:43px;">
+
+    <!-- Header -->
+    <header class="w3-container" style="padding-top:22px">
+        <h5><b><i class="fa fa-dashboard"></i> Defect Dashboard</b></h5>
+    </header>
+    <div id="main-box"></div>
+
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-16 w3-light-grey">
+        <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </footer>
+
+    <!-- End page content -->
+</div>
+
+<script>
+    // Get the Sidenav
+    var mySidenav = document.getElementById("mySidenav");
+
+    // Get the DIV with overlay effect
+    var overlayBg = document.getElementById("myOverlay");
+
+    // Toggle between showing and hiding the sidenav, and add overlay effect
+    function w3_open() {
+        if (mySidenav.style.display === 'block') {
+            mySidenav.style.display = 'none';
+            overlayBg.style.display = "none";
+        } else {
+            mySidenav.style.display = 'block';
+            overlayBg.style.display = "block";
+        }
+    }
+
+    // Close the sidenav with the close button
+    function w3_close() {
+        mySidenav.style.display = "none";
+        overlayBg.style.display = "none";
+    }
+</script>
+<script src="main.js"></script>
+</body>
+</html>
