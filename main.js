@@ -14,6 +14,7 @@ $.ajax({
     success : function(result) {
         for (var i = 0; i < result.Assets.length; i++){
             var defect = result.Assets[i];
+            console.log(defect);
             mcomdefects.push(defect);
             if(!releaseList.includes(defect.Attributes["Parent.Name"].value.slice(0,3))){
                 releaseList.push(defect.Attributes["Parent.Name"].value.slice(0,3));
@@ -35,6 +36,7 @@ $.ajax({
     success : function(result) {
         for (var i = 0; i < result.Assets.length; i++){
             var defect = result.Assets[i];
+            console.log(defect);
             bcomdefects.push(defect);
             if(!releaseList.includes(defect.Attributes["Parent.Name"].value.slice(0,3))){
                 releaseList.push(defect.Attributes["Parent.Name"].value.slice(0,3));
